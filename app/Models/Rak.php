@@ -12,4 +12,5 @@ class Rak extends Model
     protected $table = 'rak';
 
     protected $fillable = ['nama_rak'];
+
 }

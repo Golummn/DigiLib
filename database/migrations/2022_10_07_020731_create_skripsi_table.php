@@ -26,7 +26,6 @@ class CreateSkripsiTable extends Migration
             $table->text('abstrak');
             $table->string('file_url')->nullable();
             $table->string('file_path')->nullable();
-            $table->foreignId('rak_id');
             $table->timestamps();
         });
     }

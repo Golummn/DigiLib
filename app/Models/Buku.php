@@ -11,4 +11,5 @@ class Buku extends Model
 
     protected $table = 'buku';
     protected $fillable = ['judul_buku', 'kode_buku', 'rak_id', 'penerbit', 'pengarang', 'tahun_terbit', 'jumlah_buku', 'deskripsi', 'gambar'];
+
 }

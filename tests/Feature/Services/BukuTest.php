@@ -55,7 +55,6 @@ class BukuTest extends TestCase
             'tahun_terbit' => 'test',
             'jumlah_buku' => 'test',
             'deskripsi' => 'test',
-            'rak_id' => $rak->id,
             'gambar_url' => null,
             'gambar_path' => null,
         ]);

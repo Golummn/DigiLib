@@ -26,8 +26,8 @@ class SkripsiFactory extends Factory
             'kode_skripsi' => $this->faker->uuid(),
             'abstrak' => $this->faker->sentence(),
             'file_url' => null,
-            'file_path' => null,
-            'rak_id' => Rak::factory()->create()->id,
+            'file_path' => null
+            // 'rak_id' => Rak::factory()->create()->id,
         ];
     }
 }

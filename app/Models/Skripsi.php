@@ -12,4 +12,5 @@ class Skripsi extends Model
     protected $table = 'skripsi';
 
     protected $fillable = ['nim', 'nama', 'prodi', 'pembimbing1', 'pembimbing2', 'judul_skripsi', 'tahun', 'kode_skripsi', 'abstrak', 'file', 'rak_id'];
+
 }

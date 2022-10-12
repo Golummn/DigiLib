@@ -9,7 +9,7 @@ use App\Models\Skripsi;
 
 interface SkripsiService
 {
-    function add(SkripsiAddRequest $request, int $idRak): Skripsi;
+    function add(SkripsiAddRequest $request): Skripsi;
     function list(string $key): Collection;
     function update(SkripsiUpdateRequest $request, int $id): Skripsi;
     function delete(int $id): void;

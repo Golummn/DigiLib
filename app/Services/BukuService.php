@@ -10,7 +10,7 @@ use App\Models\Buku;
 
 interface BukuService
 {
-    function add(BukuAddRequest $request, int $idRak): Buku;
+    function add(BukuAddRequest $request): Buku;
     function list(string $key): Collection;
     function update(BukuUpdateRequest $request, int $id): Buku;
     function delete(int $id): void;

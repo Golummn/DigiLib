@@ -33,7 +33,6 @@ class BukuAddRequest extends FormRequest
             'jumlah_buku' => 'required|numeric',
             'deskripsi' => 'required',
             'gambar' => 'mimes:png,jpg,jpeg|file|max:2000',
-            'rak_id' => 'required',
         ];
     }
 }

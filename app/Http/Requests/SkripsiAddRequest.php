@@ -35,7 +35,6 @@ class SkripsiAddRequest extends FormRequest
             'kode_skripsi' => 'required',
             'abstrak' => 'required',
             'file' => 'mimes:pdf|file|max:2000',
-            'rak_id' => 'required',
         ];
     }
 }

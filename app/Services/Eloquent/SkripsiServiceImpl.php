@@ -17,7 +17,7 @@ class SkripsiServiceImpl implements SkripsiService
     use Media;
 
 
-    function add(SkripsiAddRequest $request, int $idRak): Skripsi
+    function add(SkripsiAddRequest $request): Skripsi
     {
 
         $nim = $request->input('nim');
@@ -43,7 +43,6 @@ class SkripsiServiceImpl implements SkripsiService
                 'abstrak' => $abstrak,
                 'file_url' => null,
                 'file_path' => null,
-                'rak_id' => $idRak
             ]);
             $skripsi->save();
             DB::commit();

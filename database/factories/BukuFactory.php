@@ -18,7 +18,6 @@ class BukuFactory extends Factory
             //
             'judul_buku' => $this->faker->name(),
             'kode_buku' => $this->faker->uuid(),
-            'rak_id' => Rak::factory()->create()->id,
             'penerbit' => $this->faker->name(),
             'pengarang' => $this->faker->name(),
             'tahun_terbit' => $this->faker->date('Y'),

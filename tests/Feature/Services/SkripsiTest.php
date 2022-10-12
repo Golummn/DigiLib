@@ -59,7 +59,6 @@ class SkripsiTest extends TestCase
             'tahun' => '2001',
             'kode_skripsi' => 'test',
             'abstrak' => 'test',
-            'rak_id' => $rak->id,
             'file_url' => null,
             'file_path' => null,
         ]);

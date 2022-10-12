@@ -17,7 +17,7 @@ class BukuServiceImpl implements BukuService
     use Media;
 
 
-    function add(BukuAddRequest $request, int $idRak): Buku
+    function add(BukuAddRequest $request): Buku
     {
 
         $judulBuku = $request->input('judul_buku');
@@ -39,7 +39,6 @@ class BukuServiceImpl implements BukuService
                 'deskripsi' => $deskripsi,
                 'gambar_url' => null,
                 'gambar_path' => null,
-                'rak_id' => $idRak
             ]);
             $buku->save();
             DB::commit();
