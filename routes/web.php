@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
-use App\Http\Controllers\RakController;
-use App\Http\Controllers\ShowController;
 use App\Http\Controllers\SkripsiController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,12 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::controller(AuthController::class)
+    ->prefix('auth')
+    ->as('auth.')
+    ->group(function () {
+        Route::get('/login', 'login')->name('login');
+        Route::get('/logout', 'logout')->name('logout');
+        Route::get('/callback', 'callback')->name('callback');
+    });
+
 Route::get('/', function () {
-    return view('dashboard.index');
+    return redirect('auth/login');
 });
 
-
-// Route::get('/daftar-buku', ShowController::class);
-Route::resource('/dashboard/rak', RakController::class);
+Route::get('/dashboard', function () {
+    return view('index');
+});
 Route::resource('/buku', BukuController::class);
 Route::resource('/skripsi', SkripsiController::class);

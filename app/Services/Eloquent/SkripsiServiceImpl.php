@@ -9,8 +9,8 @@ use App\Http\Requests\SkripsiUpdateRequest;
 use App\Models\Skripsi;
 use App\Services\SkripsiService;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Collection;
-
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 
 class SkripsiServiceImpl implements SkripsiService
 {
@@ -55,13 +55,14 @@ class SkripsiServiceImpl implements SkripsiService
     }
 
 
-    function list(string $key = ''): Collection
+    function list(string $key = '', int $size = 10): LengthAwarePaginator
     {
-        $collection = Skripsi::where('judul_skripsi', 'like', '%' . $key . '%')
+        $paginate = Skripsi::where('judul_skripsi', 'like', '%' . $key . '%')
+            ->orWhere('nim', 'like', '%' . $key . '%')
             ->orderBy('created_at', 'DESC')
-            ->get();
+            ->paginate($size);
 
-        return $collection;
+        return $paginate;
     }
 
     function update(SkripsiUpdateRequest $request, int $id): Skripsi
@@ -122,10 +123,9 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
         try {
-            if ($skripsi->file_url != null || $skripsi->file_path != null) {
-                unlink($skripsi->file_path);
+            if (Storage::disk('s3')->exists($skripsi->file_path)) {
+                Storage::disk('s3')->delete($skripsi->file_path);
             }
-
             $skripsi->delete();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());
@@ -137,8 +137,8 @@ class SkripsiServiceImpl implements SkripsiService
         $skripsi = Skripsi::find($id);
 
         try {
-            if ($skripsi->file_url != null || $skripsi->file_path != null) {
-                unlink($skripsi->file_path);
+            if (Storage::disk('s3')->exists($skripsi->file_path)) {
+                Storage::disk('s3')->delete($skripsi->file_path);
             }
 
             $skripsi->file_url = null;
@@ -156,8 +156,8 @@ class SkripsiServiceImpl implements SkripsiService
         $skripsi = Skripsi::find($id);
 
         try {
-            if ($skripsi->file_url != null || $skripsi->file_path != null) {
-                unlink($skripsi->file_path);
+            if (Storage::disk('s3')->exists($skripsi->file_path)) {
+                Storage::disk('s3')->delete($skripsi->file_path);
             }
 
             $dataFile = $this->uploads($file, 'skripsi/');

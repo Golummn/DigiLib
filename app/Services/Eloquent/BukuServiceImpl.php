@@ -9,8 +9,8 @@ use App\Http\Requests\BukuUpdateRequest;
 use App\Models\Buku;
 use App\Services\BukuService;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Collection;
-
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 
 class BukuServiceImpl implements BukuService
 {
@@ -50,13 +50,14 @@ class BukuServiceImpl implements BukuService
         return $buku;
     }
 
-    function list(string $key = ''): Collection
+    function list(string $key = '', int $size = 10): LengthAwarePaginator
     {
-        $collection = Buku::where('judul_buku', 'like', '%' . $key . '%')
+        $paginate = Buku::where('judul_buku', 'like', '%' . $key . '%')
+            ->orWhere('pengarang', 'like', '%' . $key . '%')
             ->orderBy('created_at', 'DESC')
-            ->get();
+            ->paginate($size);
 
-        return $collection;
+        return $paginate;
     }
 
     function update(BukuUpdateRequest $request, int $id): Buku
@@ -91,10 +92,9 @@ class BukuServiceImpl implements BukuService
     {
         $buku = Buku::find($id);
         try {
-            if ($buku->gambar_path != null) {
-                unlink($buku->gambar_path);
+            if (Storage::disk('s3')->exists($buku->gambar_path)) {
+                Storage::disk('s3')->delete($buku->gambar_path);
             }
-
             $buku->delete();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());
@@ -106,10 +106,9 @@ class BukuServiceImpl implements BukuService
         $buku = Buku::find($id);
 
         try {
-            if ($buku->gambar_path != null) {
-                unlink($buku->gambar_path);
+            if (Storage::disk('s3')->exists($buku->gambar_path)) {
+                Storage::disk('s3')->delete($buku->gambar_path);
             }
-
             $dataFile = $this->uploads($image, 'buku/');
             $filePath = public_path('storage/' . $dataFile['filePath']);
             $fileUrl = asset('storage/' . $dataFile['filePath']);
@@ -129,10 +128,9 @@ class BukuServiceImpl implements BukuService
         $buku = Buku::find($id);
 
         try {
-            if ($buku->gambar_path != null) {
-                unlink($buku->gambar_path);
+            if (Storage::disk('s3')->exists($buku->gambar_path)) {
+                Storage::disk('s3')->delete($buku->gambar_path);
             }
-
             $dataFile = $this->uploads($image, 'buku/');
             $filePath = public_path('storage/' . $dataFile['filePath']);
             $fileUrl = asset('storage/' . $dataFile['filePath']);
@@ -153,8 +151,8 @@ class BukuServiceImpl implements BukuService
         $buku = Buku::find($id);
 
         try {
-            if ($buku->gambar_path != null) {
-                unlink($buku->gambar_path);
+            if (Storage::disk('s3')->exists($buku->gambar_path)) {
+                Storage::disk('s3')->delete($buku->gambar_path);
             }
 
             $buku->gambar_url = null;

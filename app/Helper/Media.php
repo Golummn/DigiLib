@@ -12,15 +12,20 @@ trait Media
         if ($file) {
 
             $fileName   = time() . $file->getClientOriginalName();
-            Storage::disk('public')->put($path . $fileName, File::get($file));
+            Storage::disk('s3')->put($path . $fileName, File::get($file));
             $file_name  = $file->getClientOriginalName();
             $file_type  = $file->getClientOriginalExtension();
             $filePath   = $path . $fileName;
+
+            /** @var \Illuminate\Filesystem\FilesystemManager $disk */
+            $disk = Storage::disk('s3');
+            $url = $disk->url($filePath);
 
             return $file = [
                 'fileName' => $file_name,
                 'fileType' => $file_type,
                 'filePath' => $filePath,
+                'fileUrl' => $url,
                 'fileSize' => $this->fileSize($file)
             ];
         }

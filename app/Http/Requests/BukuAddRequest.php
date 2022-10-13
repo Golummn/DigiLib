@@ -32,7 +32,7 @@ class BukuAddRequest extends FormRequest
             'tahun_terbit' => 'required|numeric',
             'jumlah_buku' => 'required|numeric',
             'deskripsi' => 'required',
-            'gambar' => 'mimes:png,jpg,jpeg|file|max:2000',
+            'gambar' => 'required|mimes:png,jpg,jpeg|file|max:2000',
         ];
     }
 }
