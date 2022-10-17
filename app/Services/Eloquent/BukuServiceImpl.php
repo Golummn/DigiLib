@@ -110,8 +110,8 @@ class BukuServiceImpl implements BukuService
                 Storage::disk('s3')->delete($buku->gambar_path);
             }
             $dataFile = $this->uploads($image, 'buku/');
-            $filePath = public_path('storage/' . $dataFile['filePath']);
-            $fileUrl = asset('storage/' . $dataFile['filePath']);
+            $filePath = $dataFile['filePath'];
+            $fileUrl = $dataFile['fileUrl'];
 
             $buku->gambar_path = $filePath;
             $buku->gambar_url = $fileUrl;
@@ -132,11 +132,12 @@ class BukuServiceImpl implements BukuService
                 Storage::disk('s3')->delete($buku->gambar_path);
             }
             $dataFile = $this->uploads($image, 'buku/');
-            $filePath = public_path('storage/' . $dataFile['filePath']);
-            $fileUrl = asset('storage/' . $dataFile['filePath']);
+            $filePath = $dataFile['filePath'];
+            $fileUrl = $dataFile['fileUrl'];
 
             $buku->gambar_path = $filePath;
             $buku->gambar_url = $fileUrl;
+            $buku->save();
             $buku->save();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());
@@ -151,12 +152,11 @@ class BukuServiceImpl implements BukuService
         $buku = Buku::find($id);
 
         try {
+            $buku->gambar_url = null;
+            $buku->gambar_path = null;
             if (Storage::disk('s3')->exists($buku->gambar_path)) {
                 Storage::disk('s3')->delete($buku->gambar_path);
             }
-
-            $buku->gambar_url = null;
-            $buku->gambar_path = null;
             $buku->save();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());

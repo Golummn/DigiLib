@@ -18,8 +18,7 @@
                             <label class="text-danger">*</label>
                             <label for="judul_buku">Judul Buku</label>
                             <input class="form-control" id="judul_buku" type="text" placeholder="judul buku" name="judul_buku" value="{{ old('judul_buku') }}" required>
-                        </div>
-                       
+                        </div>  
                         <div class="mb-3">
                             <label class="text-danger">*</label>
                             <label for="kode_buku">Kode Buku</label>

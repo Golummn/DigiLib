@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\ShowController;
 use App\Http\Controllers\SkripsiController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [ShowController::class, 'index']);
+Route::get('/koleksi-buku', [ShowController::class, 'koleksiBuku']);
+Route::get('/daftar-skripsi', [ShowController::class, 'daftarSkripsi']);
+
 
 Route::controller(AuthController::class)
     ->prefix('auth')
@@ -26,9 +31,6 @@ Route::controller(AuthController::class)
         Route::get('/callback', 'callback')->name('callback');
     });
 
-Route::get('/', function () {
-    return redirect('auth/login');
-});
 
 Route::get('/dashboard', function () {
     return view('index');
