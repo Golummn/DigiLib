@@ -33,11 +33,14 @@
                 <div class="card-body">
                     
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Buku</th>
+                                    <th>Cover</th>
+                                    <th>Judul buku</th>
+                                    <th>Pengarang</th>
+                                    <th>Tahun terbit</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -45,7 +48,10 @@
                                 @foreach($buku as $data)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td><img src="{{ $data->gambar_url }}" class="img-fluid img-thumbnail" style="width: 50%;height:25vh;object-fit: cover;" alt="gambar buku"></td>
                                         <td>{{ $data->judul_buku }}</td>
+                                        <td>{{ $data->pengarang }}</td>
+                                        <td>{{ $data->tahun_terbit }}</td>
                                         <td class="d-flex flex-col">
                                             <a href="{{ route('buku.show', $data->id) }}">
                                                 <div class="btn btn-info "><i class="fas fa-info"></i></div>

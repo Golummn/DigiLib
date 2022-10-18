@@ -33,7 +33,7 @@ class ShowController extends Controller
     {
         $title = $this->titleBuku;
         $key = $request->query('key') ?? '';
-        $buku = $this->bukuService->list($key, 10);
+        $buku = $this->bukuService->list($key, 12);
         return response()->view('show.buku', compact('title', 'buku'));
     }
 
@@ -49,7 +49,7 @@ class ShowController extends Controller
     {
         $title = $this->titleSkripsi;
         $key = $request->query('key') ?? '';
-        $skripsi = $this->skripsiService->list($key, 10);
+        $skripsi = $this->skripsiService->list($key, 12);
         return response()->view('show.skripsi', compact('title', 'skripsi'));
     }
 

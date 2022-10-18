@@ -29,13 +29,13 @@
     <!-- Nav Item - buku -->
     <li class="nav-item {{Request::is('buku*') ? 'active' : ''}}">
         <a class="nav-link" href="/buku">
-            <i class="fa fa-newspaper"></i>
+            <i class="fa fa-book"></i>
             <span>Buku</span></a>
     </li>
     <!-- Nav Item - skripsi -->
     <li class="nav-item {{Request::is('skripsi*') ? 'active' : ''}}">
         <a class="nav-link" href="/skripsi">
-            <i class="fa fa-bullhorn"></i>
+            <i class="fa fa-newspaper"></i>
             <span>Skripsi</span></a>
     </li>
     <!-- Sidebar Toggler (Sidebar) -->

@@ -43,5 +43,8 @@
                 </div>
             @endforeach
         </div>
+        <div class="mx-3 my-3">
+            {{ $skripsi->links() }}
+        </div>
     </div>
 @endsection

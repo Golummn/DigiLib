@@ -30,6 +30,14 @@ class SkripsiController extends Controller
         return response()->view('skripsi.index', compact('title', 'skripsi'));
     }
 
+    public function show($id)
+    {
+        //
+        $title = $this->title;
+        $skripsi = Skripsi::find($id);
+        return response()->view('skripsi.show', compact('title', 'skripsi'));
+    }
+
     public function create()
     {
         //

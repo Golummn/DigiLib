@@ -30,6 +30,14 @@ class BukuController extends Controller
         return response()->view('buku.index', compact('title', 'buku'));
     }
 
+    public function show($id)
+    {
+        //
+        $title = $this->title;
+        $buku = Buku::find($id);
+        return response()->view('buku.show', compact('title', 'buku'));
+    }
+
     public function create()
     {
         //
