@@ -4,13 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('sb-admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>DigiLib | Sistem Perpustakaan FEB</title>
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 18vw;
+            object-fit: cover;
+        }
+        .box-shadow
+        {
+            -webkit-box-shadow: 0 1px 1px rgba(72,78,85,.6);
+            box-shadow: 0 1px 1px rgba(72,78,85,.6);
+            -webkit-transition: all .2s ease-out;
+            -moz-transition: all .2s ease-out;
+            -ms-transition: all .2s ease-out;
+            -o-transition: all .2s ease-out;
+            transition: all .2s ease-out;
+        }
+
+        .box-shadow:hover
+        {
+            -webkit-box-shadow: 0 20px 40px rgba(72,78,85,.6);
+            box-shadow: 0 20px 40px rgba(72,78,85,.6);
+            -webkit-transform: translateY(-15px);
+            -moz-transform: translateY(-15px);
+            -ms-transform: translateY(-15px);
+            -o-transform: translateY(-15px);
+            transform: translateY(-15px);
+
+        }
+    </style>
     </head>
     <body>
-    
-    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -34,7 +60,7 @@
 
     @yield('content')
     
-    <footer class="text-white text-center text-md-start" style="background-color: #161616">
+    <footer class="text-white text-center text-md-start mt-auto" style="background-color: #161616">
         {{-- <div class="container-fluid p-4">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-11 p-3">

@@ -80,6 +80,11 @@
                             <label for="file">File Skripsi</label>
                             <input class="form-control" id="file" type="file" placeholder="file" name="file">
                         </div>
+                        <div class="mb-3">
+                            <label class="text-danger">*</label>
+                            <label for="gambar">Cover Skripsi</label>
+                            <input class="form-control" id="gambar" type="file" placeholder="gambar" name="gambar">
+                        </div>
                         <button button type="submit" class="btn btn-primary">Kirim</button>
                     </form>
                 </div>

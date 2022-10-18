@@ -26,6 +26,8 @@ class CreateSkripsiTable extends Migration
             $table->text('abstrak');
             $table->string('file_url')->nullable();
             $table->string('file_path')->nullable();
+            $table->string('gambar_url')->nullable();
+            $table->string('gambar_path')->nullable();
             $table->timestamps();
         });
     }

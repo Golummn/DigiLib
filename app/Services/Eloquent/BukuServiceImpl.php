@@ -138,7 +138,6 @@ class BukuServiceImpl implements BukuService
             $buku->gambar_path = $filePath;
             $buku->gambar_url = $fileUrl;
             $buku->save();
-            $buku->save();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());
         }

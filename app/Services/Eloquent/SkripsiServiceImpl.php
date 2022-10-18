@@ -126,6 +126,9 @@ class SkripsiServiceImpl implements SkripsiService
             if (Storage::disk('s3')->exists($skripsi->file_path)) {
                 Storage::disk('s3')->delete($skripsi->file_path);
             }
+            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
+                Storage::disk('s3')->delete($skripsi->gambar_path);
+            }
             $skripsi->delete();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());
@@ -165,6 +168,69 @@ class SkripsiServiceImpl implements SkripsiService
 
             $skripsi->file_path = $filePath;
             $skripsi->file_url = $fileUrl;
+            $skripsi->save();
+        } catch (\Exception $exception) {
+            throw new InvariantException($exception->getMessage());
+        }
+
+        return $skripsi;
+    }
+
+    function addImage($image, int $id): Skripsi
+    {
+        $skripsi = Skripsi::find($id);
+
+        try {
+            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
+                Storage::disk('s3')->delete($skripsi->gambar_path);
+            }
+            $dataFile = $this->uploads($image, 'skripsi/');
+            $filePath = $dataFile['filePath'];
+            $fileUrl = $dataFile['fileUrl'];
+
+            $skripsi->gambar_path = $filePath;
+            $skripsi->gambar_url = $fileUrl;
+            $skripsi->save();
+        } catch (\Exception $exception) {
+            throw new InvariantException($exception->getMessage());
+        }
+
+        return $skripsi;
+    }
+
+    function updateImage($image, int $id): Skripsi
+    {
+        $skripsi = Skripsi::find($id);
+
+        try {
+            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
+                Storage::disk('s3')->delete($skripsi->gambar_path);
+            }
+            $dataFile = $this->uploads($image, 'skripsi/');
+            $filePath = $dataFile['filePath'];
+            $fileUrl = $dataFile['fileUrl'];
+
+            $skripsi->gambar_path = $filePath;
+            $skripsi->gambar_url = $fileUrl;
+            $skripsi->save();
+        } catch (\Exception $exception) {
+            throw new InvariantException($exception->getMessage());
+        }
+
+        return $skripsi;
+    }
+
+
+    function deleteImage(int $id): Skripsi
+    {
+        $skripsi = Skripsi::find($id);
+
+        try {
+            $skripsi->gambar_url = null;
+            $skripsi->gambar_path = null;
+            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
+                Storage::disk('s3')->delete($skripsi->gambar_path);
+            }
             $skripsi->save();
         } catch (\Exception $exception) {
             throw new InvariantException($exception->getMessage());

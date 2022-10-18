@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
+use App\Models\Skripsi;
 use App\Services\BukuService;
 use App\Services\SkripsiService;
 use Illuminate\Http\Request;
@@ -35,11 +37,27 @@ class ShowController extends Controller
         return response()->view('show.buku', compact('title', 'buku'));
     }
 
+    public function showBuku($id)
+    {
+        //
+        $title = $this->titleBuku;
+        $buku = Buku::find($id);
+        return response()->view('show.bukuShow', compact('title', 'buku'));
+    }
+
     public function daftarSkripsi(Request $request)
     {
         $title = $this->titleSkripsi;
         $key = $request->query('key') ?? '';
         $skripsi = $this->skripsiService->list($key, 10);
         return response()->view('show.skripsi', compact('title', 'skripsi'));
+    }
+
+    public function showSkripsi($id)
+    {
+        //
+        $title = $this->titleSkripsi;
+        $skripsi = Skripsi::find($id);
+        return response()->view('show.skripsiShow', compact('title', 'skripsi'));
     }
 }

@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ShowController::class, 'index']);
 Route::get('/koleksi-buku', [ShowController::class, 'koleksiBuku']);
+Route::get('/koleksi-buku/{id}', [ShowController::class, 'showBuku']);
 Route::get('/daftar-skripsi', [ShowController::class, 'daftarSkripsi']);
-
+Route::get('/daftar-skripsi/{id}', [ShowController::class, 'showSkripsi']);
 
 Route::controller(AuthController::class)
     ->prefix('auth')
