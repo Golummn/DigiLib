@@ -33,8 +33,10 @@ Route::controller(AuthController::class)
     });
 
 
-Route::get('/dashboard', function () {
-    return view('index');
+Route::middleware('custom-auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('index');
+    });
+    Route::resource('/buku', BukuController::class);
+    Route::resource('/skripsi', SkripsiController::class);
 });
-Route::resource('/buku', BukuController::class);
-Route::resource('/skripsi', SkripsiController::class);

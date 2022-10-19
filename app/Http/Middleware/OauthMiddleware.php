@@ -21,7 +21,14 @@ class OauthMiddleware
 
         if ($user == null) {
             return redirect()->route('auth.login');
+        } else {
+            if (
+                in_array('super-admin', $user->roles) ||
+                in_array('admin-digilib', $user->roles)
+            ) {
+                return $next($request);
+            }
+            abort(403, 'Tidak memiliki hak akses');
         }
-        return $next($request);
     }
 }
