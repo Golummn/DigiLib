@@ -12,7 +12,7 @@
                         <table class="table table-striped table-hover ms-3">
                             <tr>
                                 <td>Judul</td>
-                                <td class="text-danger">{{$buku->judul_buku}}</td>
+                                <td>{{$buku->judul_buku}}</td>
                             </tr>
                             <tr>
                                 <td>Kode Buku</td>

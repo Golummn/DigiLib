@@ -52,8 +52,12 @@ class SkripsiController extends Controller
         $image = $request->file('gambar');
         try {
             $skripsi = $this->skripsiService->add($request);
-            $this->skripsiService->addFile($skripsi->id, $file);
-            $this->skripsiService->addImage($image, $skripsi->id);
+            if($file!=null){
+                $this->skripsiService->addFile($skripsi->id, $file);
+            }
+            if($image!=null){
+                $this->skripsiService->addImage($image, $skripsi->id);
+            }
             return response()->redirectTo(route('skripsi.index'))->with('success', 'Berhasil menambahkan skripsi');
         } catch (InvariantException $exception) {
             return redirect()->back()->with('error', $exception->getMessage())->withInput($request->all());

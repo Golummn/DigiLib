@@ -56,13 +56,13 @@
                         <div class="mb-3">
                             <label class="text-danger">*</label>
                             <label for="judul_skripsi">Judul Skripsi</label>
-                            <input class="form-control" id="judul_skripsi" type="text" placeholder="judul_skripsi" name="judul_skripsi" value="{{ old('judul_skripsi') }}" required>
+                            <input class="form-control" id="judul_skripsi" type="text" placeholder="Judul Skripsi" name="judul_skripsi" value="{{ old('judul_skripsi') }}" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="text-danger">*</label>
-                            <label for="tahun">Tahun</label>
-                            <input class="form-control" id="tahun" type="text" placeholder="Tahun" name="tahun" value="{{ old('tahun') }}" required>
+                            <label for="tahun">Tahun Skripsi</label>
+                            <input class="form-control" id="tahun" type="text" placeholder="Tahun Skripsi" name="tahun" value="{{ old('tahun') }}" required>
                         </div>
 
                         <div class="mb-3">

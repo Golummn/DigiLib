@@ -9,7 +9,6 @@
     <style>
         .card-img-top {
             width: 100%;
-            height: 18vw;
             object-fit: cover;
         }
         .box-shadow
@@ -37,6 +36,7 @@
     </style>
     </head>
     <body>
+    {{-- Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -58,60 +58,56 @@
         </div>
     </nav>
 
-    @yield('content')
     
-    <footer class="text-white text-center text-md-start mt-auto" style="background-color: #161616">
-        {{-- <div class="container-fluid p-4">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-11 p-3">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
-                            <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-digilib-putih.png" class="d-block img-fluid" width="150" alt="logo digilib feb  " />
-                            <hr style="border: 1px solid #b6b7b7" />
-                            <h5 class="h5" style="color: #b6b7b7">Fakultas Ekonomi dan Bisnis</h5>
-                            <p style="color: #505050">Universitas Sains Al Qur’an Jawa Tengah di Wonosobo</p>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase">Tentang Fakultas</h5>
-
-                            <p style="color: #505050">Sejarah Feb Unsiq</p>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                            <h5 class="text-uppercase mb-3">Kontak</h5>
-
-                            <div class="text-right" style="color: #505050">
-                                <p class="text-right">Jl. KH. Hasyim Asy'ari Km. 03, Kalibeber, Kec. Mojotengah, Kab. Wonosobo,</p>
-                                <p class="text-right">Jawa Tengah - 56351</p>
-                                <p class="text-right">Telp. : (0286) ******</p>
-                                <p class="text-right">Fax. : (0286) *******</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    @yield('content')
+    {{-- Awal Footer --}}
+    <footer class="text-center text-white text-lg-start mt-5" style="background-color: #000">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <img src="https://is3.cloudhost.id/storage-feb/assets/images/logo_feb_putih.png" class="d-block" alt="logo feb" width="150" />
+                <hr style="border: 1px solid #b6b7b7" />
+                <h5 class="h5">Fakultas Ekonomi dan Bisnis</h5>
+                <p class="text-white-50">Universitas Sains Al Qur’an Jawa Tengah di Wonosobo</p>
             </div>
-        </div> --}}
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center" style="background-color: #343434">
-                <div class="col-lg-11 d-flex justify-content-between align-items-center">
-                    <div class="text-left p-3" style="color: #aeaeae">Copyright All Right Reserved 2022, Faculty of Economics and Business, UNSIQ</div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="" class="icon-footer">
-                            <i class="fa fa-facebook-f p-3"></i>
-                        </a>
-                        <a href="" class="icon-footer">
-                            <i class="fa fa-instagram p-3"></i>
-                        </a>
-                        <a href="" class="icon-footer">
-                            <i class="fa fa-twitter p-3" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Tentang Fakultas</h5>
+                <ul class="list-unstyled">
+                <li>
+                    <a href="#!" class="text-white-50" style="text-decoration: none">Sejarah Feb Unsiq</a>
+                </li>          
             </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Kontak</h5>
+                <ul class="list-unstyled">
+                    <li class="text-white-50">Jl. KH. Hasyim Asy'ari Km. 03, Kalibeber, Kec. Mojotengah, Kab. Wonosobo,</li>
+                    <li class="text-white-50">Jawa Tengah - 56351</li>
+                    <li class="text-white-50">Telp. : (0286) ******</li>
+                    <li class="text-white-50">Whatsapp. : (0286) *******</li>
+                </ul>
+            </div>
+            <!--Grid column-->
+            </div>
+            <!--Grid row-->
         </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center bg-dark text-white-50 p-3">
+            &#169; Copyright All Right Reserved 2022, Faculty of Economics and Business, UNSIQ
+        </div>
+        <!-- Copyright -->
     </footer>
-    <!-- Akhir Footer -->
+    
+    {{-- Akhir Footer --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>

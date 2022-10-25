@@ -29,12 +29,12 @@
                 </form>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-cols-5">
             @foreach ($skripsi as $data)   
-                <div class="col-md-3">
+                <div class="col">
                     <a href="daftar-skripsi/{{$data->id}}" class="text-decoration-none">
                         <div class="card my-3 border-0 shadow-sm box-shadow text-danger">
-                            <img src="{{ $data->gambar_url }}" class="card-img-top rounded img-fluid img-thumbnail" alt="gambar skripsi">
+                            <img src="{{ $data->gambar_url }}" class="card-img-top rounded img-fluid img-thumbnail" alt="cover skripsi">
                             <div class="card-body">
                                 <h6 class="card-title fs-6 fw-normal overflow-hidden" style="height: 2.6rem">{{$data->judul_skripsi}}</h6>
                             </div>
