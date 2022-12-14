@@ -20,9 +20,6 @@
 
     {{-- Sweet Alert --}}
     @yield('style')
-    <style>
-        font-family: 'Poppins', sans-serif;
-    </style>
 </head>
 <body id="page-top">
 

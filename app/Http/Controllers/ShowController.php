@@ -28,6 +28,11 @@ class ShowController extends Controller
     {
         return view('show.index');
     }
+    
+    public function admin()
+    {
+        return view('index');
+    }
 
     public function koleksiBuku(Request $request)
     {

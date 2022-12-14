@@ -33,10 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
             return in_array('super-admin', $user->roles);
         });
-        Gate::define('bendahara', function ($user = null) {
-            $user = AuthUser::user();
-            return in_array('bendahara', $user->roles);
-        });
+        
         Gate::define('dekan', function ($user = null) {
             $user = AuthUser::user();
             return in_array('dekan', $user->roles);

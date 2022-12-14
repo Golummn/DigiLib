@@ -18,7 +18,7 @@
                             <table class="table table-striped table-hover ms-3">
                                 <tr>
                                     <td>Judul Skripsi</td>
-                                    <td class="text-danger">{{$skripsi->judul_skripsi}}</td>
+                                    <td>{{$skripsi->judul_skripsi}}</td>
                                 </tr>
                                 <tr>
                                     <td>Kode skripsi</td>
