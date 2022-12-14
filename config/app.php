@@ -1,5 +1,7 @@
 <?php
 
+use App\Helper\AuthUser;
+
 return [
 
     /*
