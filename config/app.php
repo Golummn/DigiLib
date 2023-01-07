@@ -180,7 +180,8 @@ return [
         // App Providers
         App\Providers\RakServiceProvider::class,
         App\Providers\BukuServiceProvider::class,
-        App\Providers\SkripsiServiceProvider::class
+        App\Providers\SkripsiServiceProvider::class,
+        App\Providers\DosenProvider::class
 
     ],
 

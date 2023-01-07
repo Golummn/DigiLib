@@ -6,6 +6,7 @@ use App\Exceptions\InvariantException;
 use App\Http\Requests\SkripsiAddRequest;
 use App\Http\Requests\SkripsiUpdateRequest;
 use App\Models\Skripsi;
+use App\Repositories\DosenRepository;
 use App\Services\SkripsiService;
 use Illuminate\Http\Request;
 
@@ -16,10 +17,12 @@ class SkripsiController extends Controller
     private $title = 'Skripsi';
 
     private SkripsiService $skripsiService;
+    private DosenRepository $dosenRepository;
 
-    public function __construct(SkripsiService $skripsiService)
+    public function __construct(SkripsiService $skripsiService, DosenRepository $dosenRepository)
     {
         $this->skripsiService = $skripsiService;
+        $this->dosenRepository = $dosenRepository;
     }
 
     public function index(Request $request)
@@ -42,7 +45,8 @@ class SkripsiController extends Controller
     {
         //
         $title = $this->title;
-        return response()->view('skripsi.create', compact('title'));
+        $dosen = $this->dosenRepository->getAllDosen();
+        return response()->view('skripsi.create', compact('title', 'dosen'));
     }
 
     public function store(SkripsiAddRequest $request)
@@ -52,10 +56,10 @@ class SkripsiController extends Controller
         $image = $request->file('gambar');
         try {
             $skripsi = $this->skripsiService->add($request);
-            if($file!=null){
+            if ($file != null) {
                 $this->skripsiService->addFile($skripsi->id, $file);
             }
-            if($image!=null){
+            if ($image != null) {
                 $this->skripsiService->addImage($image, $skripsi->id);
             }
             return response()->redirectTo(route('skripsi.index'))->with('success', 'Berhasil menambahkan skripsi');
@@ -69,7 +73,8 @@ class SkripsiController extends Controller
         //
         $title = $this->title;
         $skripsi = Skripsi::find($id);
-        return response()->view('skripsi.edit', compact('title', 'skripsi'));
+        $dosen = $this->dosenRepository->getAllDosen();
+        return response()->view('skripsi.edit', compact('title', 'skripsi', 'dosen'));
     }
 
     public function update(SkripsiUpdateRequest $request, $id)

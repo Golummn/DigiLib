@@ -40,16 +40,22 @@
                         <div class="mb-3">
                             <label class="text-danger">*</label>
                             <label for="pembimbing1">Pembimbing 1</label>
-                            <select class="form-control" id="pembimbing1" name="pembimbing1">
-                                <option value="test1">test</option>
+                            <select class="form-select form-control" name="pembimbing1" id="pembimbing1">
+                                <option selected>Pilih pembimbing</option>
+                                @foreach ($dosen as $data)
+                                    <option value="{{$data['nama']}}">{{$data['nama']}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="text-danger">*</label>
                             <label for="pembimbing2">Pembimbing 2</label>
-                            <select class="form-control" id="pembimbing1" name="pembimbing1">
-                                <option value="test1">test</option>
+                            <select class="form-select form-control" name="pembimbing2" id="pembimbing2">
+                                <option selected>Pilih pembimbing</option>
+                                @foreach ($dosen as $data)
+                                    <option value="{{$data['nama']}}">{{$data['nama']}}</option>
+                                @endforeach
                             </select>
                         </div>
 

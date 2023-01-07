@@ -36,29 +36,29 @@
     </style>
     </head>
     <body>
-    {{-- Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-digilib.png" alt="" width="120" class="d-inline-block align-text-top img-fluid">
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link {{Request::is('/') ? 'active' : ''}}" aria-current="page" href="/">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{Request::is('koleksi-buku*') ? 'active' : ''}}" aria-current="page" href="koleksi-buku">Buku</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{Request::is('daftar-skripsi*') ? 'active' : ''}}" aria-current="page" href="daftar-skripsi">Skripsi</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::is('/') ? 'active' : ''}}" aria-current="page" href="/">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::is('koleksi-buku*') ? 'active' : ''}}" aria-current="page" href="koleksi-buku">Buku</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::is('daftar-skripsi*') ? 'active' : ''}}" aria-current="page" href="daftar-skripsi">Skripsi</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
-
-    
     @yield('content')
     {{-- Awal Footer --}}
     <footer class="text-center text-white text-lg-start mt-5" style="background-color: #000">
