@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
         <div class="sidebar-brand-text mx-3">
             <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-digilib-putih.png" class="img-fluid my-2  " width="100%" alt="">
         </div>
