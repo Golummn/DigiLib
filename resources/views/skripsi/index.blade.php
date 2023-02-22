@@ -2,7 +2,7 @@
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard / Skripsi </h1>
+        <h1 class="h3 mb-0 text-gray-800">Dashboard / Tugas Akhir </h1>
     </div>
 
     <!-- Content Row -->
@@ -11,13 +11,13 @@
             <!-- DataTales Example -->
             <div class="">
                 <a class="btn btn-success mb-3" href="{{ route('skripsi.create') }}">
-                    <i class="fas fa-plus"></i> Tambah Skripsi
+                    <i class="fas fa-plus"></i> Tambah
                 </a>
             </div>
             <div class="card shadow mb-4">
                 
                 <div class="card-header bg-white d-flex align-items-center flex-row justify-content-around">
-                    <h5 class="flex-grow-1">Daftar Skripsi</h5>
+                    <h5 class="flex-grow-1">Daftar Tugas Akhir</h5>
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="hidden" value="100" name="size">
@@ -38,9 +38,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Cover</th>
-                                    <th>Judul Skripsi</th>
+                                    <th>Judul</th>
                                     <th>Penulis</th>
-                                    <th>Tahun Skripsi</th>
+                                    <th>Tahun</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>

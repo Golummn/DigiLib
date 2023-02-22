@@ -36,14 +36,9 @@
     <li class="nav-item {{Request::is('admin/skripsi*') ? 'active' : ''}}">
         <a class="nav-link" href="{{ route('skripsi.index') }}">
             <i class="fa fa-newspaper"></i>
-            <span>Skripsi</span></a>
+            <span>Tugas Akhir</span></a>
     </li>
 
-    {{-- <li class="nav-item {{ Route::is('admin.yudisium.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.yudisium.index') }}">
-            <i class="fas fa-fw fa-paper-plane"></i>
-            <span>Pendaftaran Yudisium</span></a>
-    </li> --}}
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

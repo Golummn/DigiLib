@@ -29,9 +29,9 @@
                 </form>
             </div>
         </div>
-        <div class="row row-cols-5">
+        <div class="row-cols-md-auto">
             @foreach ($skripsi as $data)   
-                <div class="col">
+                <div class="col-md-2">
                     <a href="daftar-skripsi/{{$data->id}}" class="text-decoration-none">
                         <div class="card my-3 border-0 shadow-sm box-shadow text-danger">
                             <img src="{{ $data->gambar_url }}" class="card-img-top rounded img-fluid img-thumbnail" alt="cover skripsi">

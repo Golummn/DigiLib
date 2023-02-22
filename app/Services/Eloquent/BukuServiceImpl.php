@@ -109,7 +109,7 @@ class BukuServiceImpl implements BukuService
             if (Storage::disk('s3')->exists($buku->gambar_path)) {
                 Storage::disk('s3')->delete($buku->gambar_path);
             }
-            $dataFile = $this->uploads($image, 'buku/');
+            $dataFile = $this->uploads($image, 'digilib/buku/');
             $filePath = $dataFile['filePath'];
             $fileUrl = $dataFile['fileUrl'];
 
@@ -131,7 +131,7 @@ class BukuServiceImpl implements BukuService
             if (Storage::disk('s3')->exists($buku->gambar_path)) {
                 Storage::disk('s3')->delete($buku->gambar_path);
             }
-            $dataFile = $this->uploads($image, 'buku/');
+            $dataFile = $this->uploads($image, 'digilib/buku/');
             $filePath = $dataFile['filePath'];
             $fileUrl = $dataFile['fileUrl'];
 

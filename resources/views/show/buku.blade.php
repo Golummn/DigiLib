@@ -29,9 +29,9 @@
                 </form>
             </div>
         </div>
-        <div class="row row-cols-5">
+        <div class="row row-cols-md-auto">
             @foreach ($buku as $data)   
-                <div class="col">
+                <div class="col-md-2">
                     <a href="koleksi-buku/{{$data->id}}" class="text-decoration-none">
                         <div class="card my-3 border-0 shadow-sm box-shadow text-danger">
                             <img src="{{ $data->gambar_url }}" class="card-img-top rounded img-fluid img-thumbnail" alt="cover buku">

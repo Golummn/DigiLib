@@ -104,7 +104,7 @@ class SkripsiServiceImpl implements SkripsiService
 
 
         try {
-            $dataFile = $this->uploads($file, 'skripsi/');
+            $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
             $filePath = $dataFile['filePath'];
             $fileUrl = $dataFile['fileUrl'];
 
@@ -123,7 +123,7 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
         try {
-            if (Storage::disk('s3')->exists($skripsi->file_path)) {
+            if (Storage::disk('s3')->exists($skripsi->file_path))  {
                 Storage::disk('s3')->delete($skripsi->file_path);
             }
             if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
@@ -162,7 +162,7 @@ class SkripsiServiceImpl implements SkripsiService
                 Storage::disk('s3')->delete($skripsi->file_path);
             }
 
-            $dataFile = $this->uploads($file, 'skripsi/');
+            $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
             $filePath = $dataFile['filePath'];
             $fileUrl = $dataFile['fileUrl'];
 
@@ -184,7 +184,7 @@ class SkripsiServiceImpl implements SkripsiService
             if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
                 Storage::disk('s3')->delete($skripsi->gambar_path);
             }
-            $dataFile = $this->uploads($image, 'skripsi/');
+            $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
             $filePath = $dataFile['filePath'];
             $fileUrl = $dataFile['fileUrl'];
 
@@ -206,7 +206,7 @@ class SkripsiServiceImpl implements SkripsiService
             if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
                 Storage::disk('s3')->delete($skripsi->gambar_path);
             }
-            $dataFile = $this->uploads($image, 'skripsi/');
+            $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
             $filePath = $dataFile['filePath'];
             $fileUrl = $dataFile['fileUrl'];
 

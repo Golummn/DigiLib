@@ -8,6 +8,11 @@
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-11 col-md-8 col-sm-6">
+            <div class="">
+                <a class="btn btn-primary mb-3" href="{{ route('skripsi.index') }}">
+                    <i class="fa fa-arrow-left"></i> Kembali
+                </a>
+            </div>
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
                     <div class="row g-0">

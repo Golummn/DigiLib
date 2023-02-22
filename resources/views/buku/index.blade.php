@@ -11,7 +11,7 @@
             <!-- DataTales Example -->
             <div class="">
                 <a class="btn btn-success mb-3" href="{{ route('buku.create') }}">
-                    <i class="fas fa-plus"></i> Tambah Buku
+                    <i class="fas fa-plus"></i> Tambah
                 </a>
             </div>
             <div class="card shadow mb-4">
