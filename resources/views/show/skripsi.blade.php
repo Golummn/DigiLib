@@ -29,7 +29,7 @@
                 </form>
             </div>
         </div>
-        <div class="row-cols-md-auto">
+        <div class="row row-cols-md-auto">
             @foreach ($skripsi as $data)
                 <div class="col-md-2">
                     <a href="daftar-skripsi/{{$data->id}}" class="text-decoration-none">
