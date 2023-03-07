@@ -48,7 +48,7 @@
                                 @foreach($buku as $data)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ asset('/storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku"></td>
+                                        <td><img src="{{ asset('storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku"></td>
                                         <td>{{ $data->judul_buku }}</td>
                                         <td>{{ $data->pengarang }}</td>
                                         <td>{{ $data->tahun_terbit }}</td>

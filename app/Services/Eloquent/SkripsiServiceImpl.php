@@ -105,7 +105,7 @@ class SkripsiServiceImpl implements SkripsiService
         if ($skripsi->file_path != null) {
             $this->delete($skripsi->file_path);
         }
-        $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
+        $dataFile = $this->uploads($file, 'tugas-akhir/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
 
@@ -158,7 +158,7 @@ class SkripsiServiceImpl implements SkripsiService
         if ($skripsi->file_path != null) {
             $this->delete($skripsi->file_path);
         }
-        $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
+        $dataFile = $this->uploads($file, 'tugas-akhir/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
 
@@ -180,7 +180,7 @@ class SkripsiServiceImpl implements SkripsiService
         if ($skripsi->gambar_path != null) {
             $this->delete($skripsi->gambar_path);
         }
-        $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
+        $dataFile = $this->uploads($image, 'tugas-akhir/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
 
@@ -198,7 +198,7 @@ class SkripsiServiceImpl implements SkripsiService
         if ($skripsi->gambar_path != null) {
             $this->delete($skripsi->gambar_path);
         }
-        $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
+        $dataFile = $this->uploads($image, 'tugas-akhir/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
 

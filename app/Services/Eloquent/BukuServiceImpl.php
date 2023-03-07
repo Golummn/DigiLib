@@ -109,7 +109,7 @@ class BukuServiceImpl implements BukuService
             $this->delete($buku->gambar_path);
         }
 
-        $dataFile = $this->uploads($image, 'digilib/buku/');
+        $dataFile = $this->uploads($image, 'buku/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
 
@@ -128,7 +128,7 @@ class BukuServiceImpl implements BukuService
             $this->delete($buku->gambar_path);
         }
 
-        $dataFile = $this->uploads($image, 'digilib/buku/');
+        $dataFile = $this->uploads($image, 'buku/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
 
