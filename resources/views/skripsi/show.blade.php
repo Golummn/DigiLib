@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="{{$skripsi->gambar_url}}" class="img-fluid rounded" alt="...">
+                            <img src="{{ asset('/storage/' . $skripsi->gambar_path) }}" class="img-fluid rounded" alt="...">
                         </div>
                         <div class="col-md-8">
                             <table class="table table-striped table-hover ms-3">

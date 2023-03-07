@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div class="card shadow mb-4">
-                
+
                 <div class="card-header bg-white d-flex align-items-center flex-row justify-content-around">
                     <h5 class="flex-grow-1">Daftar Tugas Akhir</h5>
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -29,9 +29,9 @@
                             </div>
                         </div>
                     </form>
-                </div>    
+                </div>
                 <div class="card-body">
-                    
+
                     <div class="table-responsive">
                         <table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -48,7 +48,7 @@
                                 @foreach($skripsi as $data)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ $data->gambar_url }}" class="img-fluid img-thumbnail" style="width: 50%;height:25vh;object-fit: cover;" alt="gambar skripsi"></td>
+                                        <td><img src="{{ asset('/storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 50%;height:25vh;object-fit: cover;" alt="gambar skripsi"></td>
                                         <td>{{ $data->judul_skripsi }}</td>
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->tahun }}</td>
@@ -65,8 +65,8 @@
                                                 <button class="btn btn-danger delete-confirm">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
-                                            </form>    
-                                        </td>   
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

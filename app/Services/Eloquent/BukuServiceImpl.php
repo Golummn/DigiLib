@@ -105,20 +105,17 @@ class BukuServiceImpl implements BukuService
     {
         $buku = Buku::find($id);
 
-        try {
-            if (Storage::disk('s3')->exists($buku->gambar_path)) {
-                Storage::disk('s3')->delete($buku->gambar_path);
-            }
-            $dataFile = $this->uploads($image, 'digilib/buku/');
-            $filePath = $dataFile['filePath'];
-            $fileUrl = $dataFile['fileUrl'];
-
-            $buku->gambar_path = $filePath;
-            $buku->gambar_url = $fileUrl;
-            $buku->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($buku->gambar_path != null) {
+            $this->delete($buku->gambar_path);
         }
+
+        $dataFile = $this->uploads($image, 'digilib/buku/');
+        $filePath = $dataFile;
+        $fileUrl = asset('storage/' . $dataFile);
+
+        $buku->gambar_path = $filePath;
+        $buku->gambar_url = $fileUrl;
+        $buku->save();
 
         return $buku;
     }
@@ -127,20 +124,18 @@ class BukuServiceImpl implements BukuService
     {
         $buku = Buku::find($id);
 
-        try {
-            if (Storage::disk('s3')->exists($buku->gambar_path)) {
-                Storage::disk('s3')->delete($buku->gambar_path);
-            }
-            $dataFile = $this->uploads($image, 'digilib/buku/');
-            $filePath = $dataFile['filePath'];
-            $fileUrl = $dataFile['fileUrl'];
-
-            $buku->gambar_path = $filePath;
-            $buku->gambar_url = $fileUrl;
-            $buku->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($buku->gambar_path != null) {
+            $this->delete($buku->gambar_path);
         }
+
+        $dataFile = $this->uploads($image, 'digilib/buku/');
+        $filePath = $dataFile;
+        $fileUrl = asset('storage/' . $dataFile);
+
+        $buku->gambar_path = $filePath;
+        $buku->gambar_url = $fileUrl;
+        $buku->save();
+
 
         return $buku;
     }

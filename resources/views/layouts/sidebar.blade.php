@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
         <div class="sidebar-brand-text mx-3">
-            <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-digilib-putih.png" class="img-fluid my-2  " width="100%" alt="">
+            <img src="{{ asset('/assets/images/logo-digilib-putih.png') }}" class="img-fluid my-2  " width="100%" alt="">
         </div>
     </a>
 
@@ -18,12 +18,12 @@
             <span>Dashboard</span></a>
     </li>
 
-   
+
     <!-- Heading -->
     <div class="sidebar-heading">
         Koleksi
     </div>
-    
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Nav Item - buku -->

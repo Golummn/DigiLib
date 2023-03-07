@@ -6,7 +6,7 @@
             <div class="card my-3 border-0">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{$buku->gambar_url}}" class="img-fluid rounded" alt="...">
+                        <img src="{{ asset('/storage/' . $data->gambar_path) }}" class="img-fluid rounded" alt="...">
                     </div>
                     <div class="col-md-8">
                         <table class="table table-striped table-hover ms-3">

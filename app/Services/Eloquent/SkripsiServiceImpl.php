@@ -102,18 +102,16 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
 
-
-        try {
-            $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
-            $filePath = $dataFile['filePath'];
-            $fileUrl = $dataFile['fileUrl'];
-
-            $skripsi->file_url = $fileUrl;
-            $skripsi->file_path = $filePath;
-            $skripsi->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($skripsi->file_path != null) {
+            $this->delete($skripsi->file_path);
         }
+        $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
+        $filePath = $dataFile;
+        $fileUrl = asset('storage/' . $dataFile);
+
+        $skripsi->file_path = $filePath;
+        $skripsi->file_url = $fileUrl;
+        $skripsi->save();
 
         return $skripsi;
     }
@@ -157,21 +155,18 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
 
-        try {
-            if (Storage::disk('s3')->exists($skripsi->file_path)) {
-                Storage::disk('s3')->delete($skripsi->file_path);
-            }
-
-            $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
-            $filePath = $dataFile['filePath'];
-            $fileUrl = $dataFile['fileUrl'];
-
-            $skripsi->file_path = $filePath;
-            $skripsi->file_url = $fileUrl;
-            $skripsi->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($skripsi->file_path != null) {
+            $this->delete($skripsi->file_path);
         }
+        $dataFile = $this->uploads($file, 'digilib/tugas-akhir/');
+        $filePath = $dataFile;
+        $fileUrl = asset('storage/' . $dataFile);
+
+        $skripsi->file_path = $filePath;
+        $skripsi->file_url = $fileUrl;
+        $skripsi->save();
+
+        return $skripsi;
 
         return $skripsi;
     }
@@ -180,20 +175,18 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
 
-        try {
-            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
-                Storage::disk('s3')->delete($skripsi->gambar_path);
-            }
-            $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
-            $filePath = $dataFile['filePath'];
-            $fileUrl = $dataFile['fileUrl'];
+        $skripsi = Skripsi::find($id);
 
-            $skripsi->gambar_path = $filePath;
-            $skripsi->gambar_url = $fileUrl;
-            $skripsi->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($skripsi->gambar_path != null) {
+            $this->delete($skripsi->gambar_path);
         }
+        $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
+        $filePath = $dataFile;
+        $fileUrl = asset('storage/' . $dataFile);
+
+        $skripsi->gambar_path = $filePath;
+        $skripsi->gambar_url = $fileUrl;
+        $skripsi->save();
 
         return $skripsi;
     }
@@ -202,20 +195,16 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
 
-        try {
-            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
-                Storage::disk('s3')->delete($skripsi->gambar_path);
-            }
-            $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
-            $filePath = $dataFile['filePath'];
-            $fileUrl = $dataFile['fileUrl'];
-
-            $skripsi->gambar_path = $filePath;
-            $skripsi->gambar_url = $fileUrl;
-            $skripsi->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($skripsi->gambar_path != null) {
+            $this->delete($skripsi->gambar_path);
         }
+        $dataFile = $this->uploads($image, 'digilib/tugas-akhir/');
+        $filePath = $dataFile;
+        $fileUrl = asset('storage/' . $dataFile);
+
+        $skripsi->gambar_path = $filePath;
+        $skripsi->gambar_url = $fileUrl;
+        $skripsi->save();
 
         return $skripsi;
     }

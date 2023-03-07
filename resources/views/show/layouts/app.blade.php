@@ -39,7 +39,10 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-digilib.png" alt="" width="120" class="d-inline-block align-text-top img-fluid">
+                <img src="{{ asset('/assets/images/logo-feb.png') }}" alt="" width="80" class="d-inline-block align-text-top img-fluid">
+            </a>
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('/assets/images/logo-digilib.png') }}" alt="" width="120" class="d-inline-block align-text-top img-fluid">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -81,7 +84,7 @@
                 <ul class="list-unstyled">
                 <li>
                     <a href="#!" class="text-white-50" style="text-decoration: none">Sejarah Feb Unsiq</a>
-                </li>          
+                </li>
             </div>
             <!--Grid column-->
 
@@ -106,7 +109,7 @@
         </div>
         <!-- Copyright -->
     </footer>
-    
+
     {{-- Akhir Footer --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
