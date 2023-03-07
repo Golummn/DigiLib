@@ -48,7 +48,13 @@
                                 @foreach($skripsi as $data)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ asset('/storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 50%;height:25vh;object-fit: cover;" alt="gambar skripsi"></td>
+                                        <td>
+                                            @if ($data->gambar_path != null)
+                                                <img src="{{ asset('storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku"/>
+                                            @else
+                                             <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku" />
+                                            @endif
+                                        </td>
                                         <td>{{ $data->judul_skripsi }}</td>
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->tahun }}</td>

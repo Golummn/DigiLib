@@ -6,7 +6,11 @@
             <div class="card my-3 border-0">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{$skripsi->gambar_url}}" class="img-fluid rounded" alt="...">
+                        @if ($skripsi->gambar_path != null)
+                            <img src="{{ asset('storage/' . $skripsi->gambar_path) }}" class="img-fluid rounded" alt="gambar buku"/>
+                        @else
+                            <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid rounded" alt="gambar buku" />
+                        @endif
                     </div>
                     <div class="col-md-8">
                         <table class="table table-striped table-hover ms-3">

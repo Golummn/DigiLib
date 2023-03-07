@@ -30,15 +30,19 @@
             </div>
         </div>
         <div class="row-cols-md-auto">
-            @foreach ($skripsi as $data)   
+            @foreach ($skripsi as $data)
                 <div class="col-md-2">
                     <a href="daftar-skripsi/{{$data->id}}" class="text-decoration-none">
                         <div class="card my-3 border-0 shadow-sm box-shadow text-danger">
-                            <img src="{{ $data->gambar_url }}" class="card-img-top rounded img-fluid img-thumbnail" alt="cover skripsi">
+                            @if ($data->gambar_path != null)
+                                <img src="{{ asset('storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" class="card-img-top rounded img-fluid img-thumbnail" alt="cover buku"/>
+                            @else
+                                <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid img-thumbnail" class="card-img-top rounded img-fluid img-thumbnail" alt="cover buku" />
+                            @endif
                             <div class="card-body">
                                 <h6 class="card-title fs-6 fw-normal overflow-hidden" style="height: 2.6rem">{{$data->judul_skripsi}}</h6>
                             </div>
-                        </div>    
+                        </div>
                     </a>
                 </div>
             @endforeach
