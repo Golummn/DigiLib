@@ -103,7 +103,7 @@ class SkripsiServiceImpl implements SkripsiService
         $skripsi = Skripsi::find($id);
 
         if ($skripsi->file_path != null) {
-            $this->delete($skripsi->file_path);
+            $this->deleteFile($skripsi->file_path);
         }
         $dataFile = $this->uploads($file, 'tugas-akhir/');
         $filePath = $dataFile;
@@ -120,35 +120,15 @@ class SkripsiServiceImpl implements SkripsiService
     function delete(int $id): void
     {
         $skripsi = Skripsi::find($id);
-        try {
-            if (Storage::disk('s3')->exists($skripsi->file_path))  {
-                Storage::disk('s3')->delete($skripsi->file_path);
-            }
-            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
-                Storage::disk('s3')->delete($skripsi->gambar_path);
-            }
-            $skripsi->delete();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+
+        if ($skripsi->file_path != null) {
+            $this->deleteFile($skripsi->file_path);
         }
-    }
-
-    function deleteFile(int $id, $file): Skripsi
-    {
-        $skripsi = Skripsi::find($id);
-
-        try {
-            if (Storage::disk('s3')->exists($skripsi->file_path)) {
-                Storage::disk('s3')->delete($skripsi->file_path);
-            }
-            $skripsi->file_url = null;
-            $skripsi->file_path = null;
-            $skripsi->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
+        if ($skripsi->gambar_path != null) {
+            $this->deleteFile($skripsi->gambar_path);
         }
+        $skripsi->delete();
 
-        return $skripsi;
     }
 
     function editFile(int $id, $file): Skripsi
@@ -156,7 +136,7 @@ class SkripsiServiceImpl implements SkripsiService
         $skripsi = Skripsi::find($id);
 
         if ($skripsi->file_path != null) {
-            $this->delete($skripsi->file_path);
+            $this->deleteFile($skripsi->file_path);
         }
         $dataFile = $this->uploads($file, 'tugas-akhir/');
         $filePath = $dataFile;
@@ -175,10 +155,8 @@ class SkripsiServiceImpl implements SkripsiService
     {
         $skripsi = Skripsi::find($id);
 
-        $skripsi = Skripsi::find($id);
-
         if ($skripsi->gambar_path != null) {
-            $this->delete($skripsi->gambar_path);
+            $this->deleteFile($skripsi->gambar_path);
         }
         $dataFile = $this->uploads($image, 'tugas-akhir/');
         $filePath = $dataFile;
@@ -196,8 +174,9 @@ class SkripsiServiceImpl implements SkripsiService
         $skripsi = Skripsi::find($id);
 
         if ($skripsi->gambar_path != null) {
-            $this->delete($skripsi->gambar_path);
+            $this->deleteFile($skripsi->gambar_path);
         }
+
         $dataFile = $this->uploads($image, 'tugas-akhir/');
         $filePath = $dataFile;
         $fileUrl = asset('storage/' . $dataFile);
@@ -205,25 +184,6 @@ class SkripsiServiceImpl implements SkripsiService
         $skripsi->gambar_path = $filePath;
         $skripsi->gambar_url = $fileUrl;
         $skripsi->save();
-
-        return $skripsi;
-    }
-
-
-    function deleteImage(int $id): Skripsi
-    {
-        $skripsi = Skripsi::find($id);
-
-        try {
-            $skripsi->gambar_url = null;
-            $skripsi->gambar_path = null;
-            if (Storage::disk('s3')->exists($skripsi->gambar_path)) {
-                Storage::disk('s3')->delete($skripsi->gambar_path);
-            }
-            $skripsi->save();
-        } catch (\Exception $exception) {
-            throw new InvariantException($exception->getMessage());
-        }
 
         return $skripsi;
     }

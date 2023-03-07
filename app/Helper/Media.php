@@ -21,7 +21,7 @@ trait Media
         }
     }
 
-    public function delete($path) {
+    public function deleteFile($path) {
         Storage::disk('public')->delete($path);
     }
 }

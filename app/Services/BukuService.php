@@ -16,5 +16,4 @@ interface BukuService
     function delete(int $id): void;
     function addImage($file, int $id): Buku;
     function updateImage($file, int $id): Buku;
-    function deleteImage(int $id): Buku;
 }

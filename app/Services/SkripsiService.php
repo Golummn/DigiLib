@@ -15,8 +15,6 @@ interface SkripsiService
     function delete(int $id): void;
     function addFile(int $id, $file): Skripsi;
     function editFile(int $id, $file): Skripsi;
-    function deleteFile(int $id, $file): Skripsi;
     function addImage($file, int $id): Skripsi;
     function updateImage($file, int $id): Skripsi;
-    function deleteImage(int $id): Skripsi;
 }

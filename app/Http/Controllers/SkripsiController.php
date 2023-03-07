@@ -81,11 +81,15 @@ class SkripsiController extends Controller
     {
         //
         $file = $request->file('file');
+        $image = $request->file('gambar');
 
         try {
             $result = $this->skripsiService->update($request, $id);
             if ($file != null) {
                 $this->skripsiService->editFile($id, $file);
+            }
+            if ($file != null) {
+                $this->skripsiService->updateImage($image, $id);
             }
             return response()->redirectTo(route('skripsi.index'))->with('success', 'Berhasil mengubah skripsi');
         } catch (InvariantException $exception) {
