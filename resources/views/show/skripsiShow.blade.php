@@ -7,7 +7,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         @if ($skripsi->gambar_path != null)
-                            <img src="{{ asset('storage/' . $skripsi->gambar_path) }}" class="img-fluid rounded" alt="gambar buku"/>
+                            <img src="{{ asset('storage/'.$skripsi->gambar_path) }}" class="img-fluid rounded" alt="gambar buku"/>
                         @else
                             <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid rounded" alt="gambar buku" />
                         @endif
@@ -24,15 +24,15 @@
                             </tr>
                             <tr>
                                 <td>Penulis</td>
-                                <td>{{$skripsi->pengarang}}</td>
+                                <td>{{$skripsi->nama}}</td>
                             </tr>
                             <tr>
                                 <td>Tahun Skripsi</td>
-                                <td>{{$skripsi->tahun_terbit}}</td>
+                                <td>{{$skripsi->tahun}}</td>
                             </tr>
                             <tr>
                                 <td>Abstrak</td>
-                                <td>{!! $skripsi->deskripsi !!}</td>
+                                <td>{!! $skripsi->abstrak !!}</td>
                             </tr>
                         </table>
                     </div>

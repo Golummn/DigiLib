@@ -53,10 +53,10 @@
                         <a class="nav-link {{Request::is('/') ? 'active' : ''}}" aria-current="page" href="/">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::is('koleksi-buku*') ? 'active' : ''}}" aria-current="page" href="koleksi-buku">Buku</a>
+                        <a class="nav-link {{ Route::is('koleksiBuku.*') ? 'active' : '' }}" aria-current="page" href="{{ route('koleksiBuku.koleksiBuku') }}">Koleksi Buku</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::is('daftar-skripsi*') ? 'active' : ''}}" aria-current="page" href="daftar-skripsi">Skripsi</a>
+                        <a class="nav-link {{ Route::is('daftarSkripsi.*') ? 'active' : '' }}" aria-current="page" href="{{ route('daftarSkripsi.daftarSkripsi') }}">Tugas Akhir</a>
                     </li>
                 </ul>
             </div>
@@ -71,7 +71,7 @@
             <div class="row">
             <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <img src="https://is3.cloudhost.id/storage-feb/assets/images/logo_feb_putih.png" class="d-block" alt="logo feb" width="150" />
+                <img src="{{ asset('/assets/images/logo-feb.png') }}" class="d-block" alt="logo feb" width="150" />
                 <hr style="border: 1px solid #b6b7b7" />
                 <h5 class="h5">Fakultas Ekonomi dan Bisnis</h5>
                 <p class="text-white-50">Universitas Sains Al Qur’an Jawa Tengah di Wonosobo</p>
@@ -94,8 +94,7 @@
                 <ul class="list-unstyled">
                     <li class="text-white-50">Jl. KH. Hasyim Asy'ari Km. 03, Kalibeber, Kec. Mojotengah, Kab. Wonosobo,</li>
                     <li class="text-white-50">Jawa Tengah - 56351</li>
-                    <li class="text-white-50">Telp. : (0286) ******</li>
-                    <li class="text-white-50">Whatsapp. : (0286) *******</li>
+                    <li class="text-white-50">Telp. : (0286) 3396204</li>
                 </ul>
             </div>
             <!--Grid column-->

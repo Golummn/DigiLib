@@ -42,7 +42,7 @@ class ShowController extends Controller
         return response()->view('show.buku', compact('title', 'buku'));
     }
 
-    public function showBuku($id)
+    public function detailBuku($id)
     {
         //
         $title = $this->titleBuku;
@@ -58,7 +58,7 @@ class ShowController extends Controller
         return response()->view('show.skripsi', compact('title', 'skripsi'));
     }
 
-    public function showSkripsi($id)
+    public function detailSkripsi($id)
     {
         //
         $title = $this->titleSkripsi;

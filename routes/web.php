@@ -18,10 +18,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ShowController::class, 'index']);
-Route::get('/koleksi-buku', [ShowController::class, 'koleksiBuku']);
-Route::get('/koleksi-buku/{id}', [ShowController::class, 'showBuku']);
-Route::get('/daftar-skripsi', [ShowController::class, 'daftarSkripsi']);
-Route::get('/daftar-skripsi/{id}', [ShowController::class, 'showSkripsi']);
+Route::controller(ShowController::class)
+    ->prefix('koleksi-buku')
+    ->as('koleksiBuku.')
+    ->group(function () {
+        Route::get('/', 'koleksiBuku')->name('koleksiBuku');
+        Route::get('/{id}', 'detailBuku')->name('detailBuku');
+    });
+    
+Route::controller(ShowController::class)
+    ->prefix('daftar-skripsi')
+    ->as('daftarSkripsi.')
+    ->group(function () {
+        Route::get('/', 'daftarSkripsi')->name('daftarSkripsi');
+        Route::get('/{id}', 'detailSkripsi')->name('detailSkripsi');
+    });
 
 Route::controller(AuthController::class)
     ->prefix('auth')

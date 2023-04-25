@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="py-5 bg-danger text-center text-white">
-                <h1>Daftar Skripsi</h1>
+                <h1>Daftar Tugas Akhir</h1>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
                 <form class="my-5 mw-200 navbar-search" method="GET">
                     <label for="search" class="form-label">
                         <h2 class="text-danger">
-                            Cari Skripsi
+                            Cari Tugas Akhir
                         </h2>
                     </label>
                     <div class="input-group">
