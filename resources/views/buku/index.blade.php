@@ -31,7 +31,6 @@
                     </form>
                 </div>
                 <div class="card-body">
-
                     <div class="table-responsive">
                         <table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -49,10 +48,10 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
-                                            @if ($data->gambar_path != null)
-                                                <img src="{{ asset('storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku"/>
-                                            @else
+                                            @if ($data->gambar_path == null || !file_exists(asset('storage/' . $data->gambar_path)))
                                                 <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku" />
+                                            @else
+                                                <img src="{{ asset('storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" style="width: 80%;height:25vh;object-fit: cover;" alt="gambar buku"/>
                                             @endif
                                         </td>
                                         </td>

@@ -17,11 +17,11 @@
                 <div class="card-body">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            @if ($skripsi->gambar_path != null)
-                            <img src="{{ asset('storage/' . $skripsi->gambar_path) }}" class="img-fluid rounded" alt="gambar skripsi"/>
-                        @else
-                            <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid rounded" alt="gambar skripsi" />
-                        @endif
+                            @if ($skripsi->gambar_path == null || !file_exists(asset('storage/' . $skripsi->gambar_path)))
+                                <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid rounded" alt="gambar skripsi" />
+                            @else
+                                <img src="{{ asset('storage/' . $skripsi->gambar_path) }}" class="img-fluid rounded" alt="gambar skripsi"/>
+                            @endif
                         </div>
                         <div class="col-md-8">
                             <table class="table table-striped table-hover ms-3">

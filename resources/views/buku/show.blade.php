@@ -17,10 +17,10 @@
                 <div class="card-body">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            @if ($buku->gambar_path != null)
-                                <img src="{{ asset('storage/' . $buku->gambar_path) }}" class="img-fluid rounded" alt="gambar buku"/>
-                            @else
+                            @if ($buku->gambar_path == null || !file_exists(asset('storage/' . $buku->gambar_path)))
                                 <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid rounded" alt="gambar buku" />
+                            @else
+                                <img src="{{ asset('storage/' . $buku->gambar_path) }}" class="img-fluid rounded" alt="gambar buku"/>
                             @endif
                         </div>
                         <div class="col-md-8">
