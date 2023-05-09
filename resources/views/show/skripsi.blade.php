@@ -34,7 +34,7 @@
                 <div class="col-md-2">
                     <a href="daftar-skripsi/{{$data->id}}" class="text-decoration-none">
                         <div class="card my-3 border-0 shadow-sm box-shadow text-danger">
-                            @if ($data->gambar_path == null || !file_exists(asset('storage/' . $data->gambar_path)))
+                            @if ($data->gambar_path == null || !file_exists(public_path('storage/' . $data->gambar_path)))
                                 <img src="{{ asset('/assets/images/book.png') }}" class="img-fluid img-thumbnail" class="card-img-top rounded img-fluid img-thumbnail" alt="cover buku" />
                             @else
                                 <img src="{{ asset('storage/' . $data->gambar_path) }}" class="img-fluid img-thumbnail" class="card-img-top rounded img-fluid img-thumbnail" alt="cover buku"/>
