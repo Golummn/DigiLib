@@ -13,6 +13,7 @@
                 <a class="btn btn-success mb-3" href="{{ route('buku.create') }}">
                     <i class="fas fa-plus"></i> Tambah
                 </a>
+                <button class="btn btn-warning mb-3" data-toggle="modal" data-target="#modalImport"><i class="fas fa-file"></i> Import Mahasiswa</button>
             </div>
             <div class="card shadow mb-4">
 
@@ -85,4 +86,5 @@
             </div>
         </div>
     </div>
+    @include('buku.import')
 @endsection

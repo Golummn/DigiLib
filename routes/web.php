@@ -25,7 +25,7 @@ Route::controller(ShowController::class)
         Route::get('/', 'koleksiBuku')->name('koleksiBuku');
         Route::get('/{id}', 'detailBuku')->name('detailBuku');
     });
-    
+
 Route::controller(ShowController::class)
     ->prefix('daftar-skripsi')
     ->as('daftarSkripsi.')
@@ -48,6 +48,7 @@ Route::middleware('custom-auth')->group(function () {
     Route::prefix('admin')->group(function(){
         Route::get('dashboard',[ShowController::class, 'admin' ]);
         Route::resource('/buku', BukuController::class);
+        Route::post('/buku/import', [BukuController::class, 'import'])->name('buku.import');
         Route::resource('/skripsi', SkripsiController::class);
     });
 });

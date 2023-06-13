@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\InvariantException;
 use App\Http\Requests\BukuAddRequest;
+use App\Http\Requests\BukuImportRequest;
 use App\Http\Requests\BukuUpdateRequest;
+use App\Imports\BukuImport;
 use App\Models\Buku;
 use App\Services\BukuService;
+use Exception;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BukuController extends Controller
 {
@@ -90,5 +94,21 @@ class BukuController extends Controller
         } catch (InvariantException $exception) {
             return redirect()->back()->with('error', $exception->getMessage());
         }
+    }
+
+    public function import(BukuImportRequest $request) {
+        try {
+            $file = $request->file('file');
+
+            // import data
+            Excel::import(new BukuImport, $file);
+
+            return redirect()->back()->with('success', "Berhasil import data buku");
+
+        }catch (Exception $exception) {
+            dd($exception->getMessage());
+            return redirect()->back()->with('error', "Gagal import data buku");
+        }
+
     }
 }

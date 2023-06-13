@@ -181,7 +181,10 @@ return [
         App\Providers\RakServiceProvider::class,
         App\Providers\BukuServiceProvider::class,
         App\Providers\SkripsiServiceProvider::class,
-        App\Providers\DosenProvider::class
+        App\Providers\DosenProvider::class,
+
+        // External Provider
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -238,6 +241,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'AuthUser' => AuthUser::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
